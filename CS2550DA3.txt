@@ -1,0 +1,132 @@
+-- Design Assignment 3
+-- Liz Ruttenbur
+-- CS 2550
+
+-- Creating the Tables
+
+CREATE TABLE GameData
+(
+GameNum int,
+Score varchar(255),
+School varchar(255),
+Game_date DATE,
+)
+
+CREATE TABLE SchoolData
+(
+School varchar(255),
+City varchar(255),
+Coach varchar(255),
+TeamName varchar(255)
+)
+
+CREATE TABLE PlayerData
+(
+PlayerNumber int,
+School varchar(255),
+PlayerName varchar(255)
+)
+
+CREATE TABLE SchoolRecords
+(
+School varchar(255),
+Wins int,
+Losses int
+)
+
+--Inserting Values into GameData
+
+
+INSERT INTO GameData
+(GameNum, Score, School, Game_date)
+VALUES
+('1','3-7','Weber', TO_DATE('08-20-11', 'MM-DD-YY');
+
+INSERT INTO GameData
+(GameNum, Score, School, Game_date)
+VALUES
+('1','21-14','Northridge', TO_DATE('08-20-11', 'MM-DD-YY');
+
+INSERT INTO GameData
+(GameNum, Score, School, Game_date)
+VALUES
+('1','27-20','Davis', TO_DATE('09-03-11', 'MM-DD-YY');
+
+INSERT INTO GameData
+(GameNum, Score, School, Game_date)
+VALUES
+('2','0-31','Weber', TO_DATE('08-27-11', 'MM-DD-YY');
+
+INSERT INTO GameData
+(GameNum, Score, School, Game_date)
+VALUES
+('2','13-54','Nortridge', TO_DATE('09-03-11', 'MM-DD-YY');
+
+INSERT INTO GameData
+(GameNum, Score, School, Game_date)
+VALUES
+('2','6-14','Davis', TO_DATE('09-17-11', 'MM-DD-YY');
+
+
+--INSERTING VALUES INTO SCHOOLDATA
+
+INSERT INTO SchoolData
+(school, city, coach, TeamName)
+VALUES
+('weber','ogden','corbridge','warriors');
+
+INSERT INTO SchoolData
+(school, city, coach, TeamName)
+VALUES
+('Northridge','Layton','Thompson','Knights');
+
+INSERT INTO SchoolData
+(school, city, coach, TeamName)
+VALUES
+('Davis','Kaysville','Bishop','Darts');
+
+-- INSERTING VALUES INTO SCHOOL RECORDS
+
+INSERT INTO SchoolRecords
+(school, wins, losses)
+VALUES
+('Weber','3','6');
+
+INSERT INTO SchoolRecords
+(school, wins, losses)
+VALUES
+('Northridge','9','3');
+
+INSERT INTO SchoolRecords
+(school, wins, losses)
+VALUES
+('Davis','8','2');
+
+
+--INSERTING DATA PLAYERDATA
+
+INSERT INTO PlayerData
+(school, playernumber, PlayerName)
+VALUES
+('weber', '42','Locke');
+
+INSERT INTO PlayerData
+(school, playernumber, PlayerName)
+VALUES
+('weber', '18','Reyes');
+
+INSERT INTO PlayerData
+(school, playernumber, PlayerName)
+VALUES
+('Davis', '6','Shepherd');
+
+INSERT INTO PlayerData
+(school, playernumber, PlayerName)
+VALUES
+('Northridge', '42','Austin');
+
+
+
+-- TESTING
+
+SELECT COUNT(*) AS 

@@ -1,0 +1,60 @@
+-- Assignment 7
+-- CS2550
+-- Liz Ruttenbur
+
+--1
+SELECT DISTINCT i.last_name, i.first_name
+FROM instructor i, section s, enrollment e, grade g
+WHERE i.instructor_id NOT IN
+(SELECT s.instructor_id
+FROM instructor i, section s, enrollment e, grade g
+WHERE i.instructor_id = s.instructor_id
+AND s.section_id = e.section_id
+AND e.section_id = g.section_id
+AND g.grade_type_code = 'PJ')
+ORDER BY i.last_name;
+
+--2
+SELECT COUNT(*) AS "BELOW_AVERAGE"
+FROM student s, enrollment e, grade g
+WHERE g.student_id = e.student_id
+AND e.student_id = s.student_id
+AND g.grade_type_code = 'FI'
+AND g.section_id = 86
+AND g.numeric_grade <
+(SELECT AVG(numeric_grade)
+FROM student s, enrollment e, grade g
+WHERE g.student_id = e.student_id
+AND e.student_id = s.student_id
+AND g.grade_type_code = 'FI'
+AND g.section_id = 86);
+
+--3
+SELECT z.city, z.state
+FROM student s, enrollment e, zipcode z
+WHERE e.student_id = s.student_id
+AND s.zip = z.zip
+GROUP BY z.city, z.state
+HAVING COUNT(*) =
+(SELECT MAX(COUNT(*))
+FROM student s, enrollment e, zipcode z
+WHERE e.student_id = s.student_id
+AND s.zip = z.zip
+GROUP BY z.city);
+
+--4
+
+SELECT DISTINCT s.student_id, s.first_name, s.last_name, g.numeric_grade
+FROM student s, enrollment e, grade g
+WHERE g.student_id = e.student_id
+AND e.student_id = s.student_id
+AND g.grade_type_code = 'FI'
+AND g.section_id = 81
+AND g.numeric_grade =
+(SELECT MIN(numeric_grade)
+FROM grade
+WHERE grade_type_code = 'FI'
+AND section_id = 81);
+
+
+--5

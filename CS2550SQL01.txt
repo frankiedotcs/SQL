@@ -1,0 +1,58 @@
+
+--1
+SELECT last_name, first_name
+FROM instructor
+ORDER BY  last_name;
+
+--2
+SELECT DISTINCT location
+FROM section
+ORDER BY location;
+
+--3
+SELECT last_name, first_name
+FROM instructor
+WHERE last_name LIKE 'W%'
+ORDER BY last_name;
+
+--4
+SELECT phone, first_name || ' ' || last_name AS Full_Name, employer
+FROM student
+WHERE last_name = 'Miller'
+ORDER BY phone;
+
+--5
+SELECT course_no, description
+FROM course
+WHERE PREREQUISITE = '20'
+ORDER BY course_no;
+
+--6
+SELECT course_no, description, cost
+FROM course
+WHERE course_no >= 200 AND course_no <= 299 AND cost < 1100
+ORDER BY course_no;
+
+--7
+SELECT course_no, section_id
+FROM section
+WHERE course_no >=100 AND course_no <= 199 AND location = 'L214' OR location = 'L211'
+ORDER BY course_no, section_id;
+
+--8
+SELECT course_no, section_id
+FROM section
+WHERE capacity IN (10,12)
+ORDER BY course_no, section_id;
+
+--9
+SELECT DISTINCT student_id, numeric_grade
+FROM grade
+WHERE SUBSTR(section_id, 1,3)= 147 AND grade_type_code = 'FI'
+ORDER BY student_id, numeric_grade;
+
+--10
+SELECT course_no, description
+FROM course
+WHERE course_no>=200 AND course_no<=299
+ORDER BY description;
